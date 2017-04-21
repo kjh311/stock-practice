@@ -12,7 +12,11 @@ var app = angular.module("myapp", [])
 
    
    app.controller("MyController", function($scope, $http) {
- 
+ var inputStock = document.getElementById("inputStock");
+
+ $scope.myFunction = function () {
+        console.log(inputStock.value);
+    
 
       
 
@@ -32,7 +36,7 @@ var dayEight = {};
 var dayNine = {};
 var dayTen = {};
 
-      $http.get("http://api.kibot.com/?action=history&symbol=FB&interval=daily&period=10&user=guest&password=guest").success(function(data) {
+      $http.get("http://api.kibot.com/?action=history&symbol="+inputStock.value+"&interval=daily&period=20&user=guest&password=guest").success(function(data) {
         $scope.FBdata = data;
         fbdata = data;
         res = fbdata.split(",");
@@ -46,7 +50,16 @@ var dayTen = {};
         dayEight = parseFloat(res[39]);
         dayNine = parseFloat(res[44]);
         dayTen = parseFloat(res[49]);
-        console.log(res[14]);
+        console.log(dayOne);
+        console.log(dayTwo);
+        console.log(dayThree);
+        console.log(dayFour);
+        console.log(dayFive);
+        console.log(daySix);
+        console.log(daySeven);
+        console.log(dayEight);
+        console.log(dayNine);
+        console.log(dayTen);
         console.log(typeof dayOne);
       });
 
@@ -89,5 +102,6 @@ var dayTen = {};
       var chart = new google.charts.Line(document.getElementById('linechart_material'));
 
       chart.draw(blah, google.charts.Line.convertOptions(options));
+    }
     }
    });

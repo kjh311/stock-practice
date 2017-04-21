@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="myapp">
+<html ng-app="myapp" ng-cloak>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,8 +28,13 @@
   <div id="linechart_material" style="width: 900px; height: 500px"></div>
 
 
+<h1><form ng-submit="myFunction()">
+  Enter Stock Ticker: <input id="inputStock" type="text">
+  <input type="submit">
+</form></h1>
 
-<h1>{{FBdata}}</h1>
+
+<!-- <h1>{{FBdata}}</h1> -->
 
 
 <!-- Latest compiled and minified JavaScript -->
